@@ -7,7 +7,10 @@ import {
   FAIL_READING_SMURFS,
   DELETEING_SMURF,
   SUCCESS_DELETEING_SMURF,
-  FAIL_DELETEING_SMURF
+  FAIL_DELETEING_SMURF,
+  UPDATING_SMURF,
+  SUCCESS_UPDATING_SMURF,
+  FAIL_UPDATING_SMURF
 } from "../actions/index";
 
 const initState = {
@@ -39,6 +42,12 @@ export function smurfReducer(stateOfSmurfs = initState, action) {
       return {...stateOfSmurfs, deletingSmurf: false, smurfs: action.payload};
     case FAIL_DELETEING_SMURF:
       return {...stateOfSmurfs, deletingSmurf: false, error: action.payload};
+    case UPDATING_SMURF:
+      return {...stateOfSmurfs, updatingSmurf:true, error: null};
+    case SUCCESS_UPDATING_SMURF:
+      return {...stateOfSmurfs, updatingSmurf: false, smurfs: action.payload};
+    case FAIL_UPDATING_SMURF:
+      return {...stateOfSmurfs, updatingSmurf: false, error: action.payload}
     default:
       return stateOfSmurfs;
   }
