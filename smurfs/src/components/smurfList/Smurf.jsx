@@ -10,6 +10,8 @@ export function Smurf({ smurf, deleteSmurf, setUpdatingSmurf }) {
   return (
     <StyledSmurf>
       <span>{smurf.name} </span>
+      <span>{smurf.age} </span>
+      <span>{smurf.height} </span>
       <button onClick={() => deleteSmurf(smurf.id)}> delete </button>
       <button
         onClick={() =>

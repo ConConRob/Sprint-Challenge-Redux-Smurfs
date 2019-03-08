@@ -45,7 +45,6 @@ export function smurfReducer(stateOfSmurfs = initState, action) {
     case UPDATING_SMURF:
       return {...stateOfSmurfs, updatingSmurf:true, error: null};
     case SUCCESS_UPDATING_SMURF:
-    debugger
       return {...stateOfSmurfs, updatingSmurf: false, smurfs: action.payload};
     case FAIL_UPDATING_SMURF:
       return {...stateOfSmurfs, updatingSmurf: false, error: action.payload}
