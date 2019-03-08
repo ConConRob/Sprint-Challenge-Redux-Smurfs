@@ -56,66 +56,68 @@ export function smurfReducer(stateOfSmurfs = initState, action) {
   }
 }
 
+const form = formReducer.plugin({
+  createSmurf: (state, action) => {
+    switch (action.type) {
+      case SET_UPDATING_SMURF:
+        return {
+          ...state,
+          editID: action.payload.id,
+          values: {
+            name: action.payload.name,
+            age: action.payload.age,
+            height: action.payload.height
+          }
+        };
+      case SUCCESS_UPDATING_SMURF:
+        return {
+          ...state,
+          editID: null,
+          values: {
+            name: "",
+            age: "",
+            height: ""
+          }
+        };
+      case FAIL_UPDATING_SMURF:
+        return {
+          ...state,
+          editID: null,
+          values: {
+            name: "",
+            age: "",
+            height: ""
+          }
+        };
+      case SUCCESS_CREATING_SMURF:
+        return {
+          ...state,
+          editID: null,
+          values: {
+            name: "",
+            age: "",
+            height: ""
+          }
+        };
+      case FAIL_CREATING_SMURF:
+        return {
+          ...state,
+          editID: null,
+          values: {
+            name: "",
+            age: "",
+            height: ""
+          }
+        };
+      default:
+        return state;
+    }
+  }
+})
+
 export const reducers = {
   smurfReducer,
-  form: formReducer.plugin({
-    createSmurf: (state, action) => {
-      switch (action.type) {
-        case SET_UPDATING_SMURF:
-          return {
-            ...state,
-            editID: action.payload.id,
-            values: {
-              name: action.payload.name,
-              age: action.payload.age,
-              height: action.payload.height
-            }
-          };
-        case SUCCESS_UPDATING_SMURF:
-          return {
-            ...state,
-            editID: null,
-            values: {
-              name: "",
-              age: "",
-              height: ""
-            }
-          };
-        case FAIL_UPDATING_SMURF:
-          return {
-            ...state,
-            editID: null,
-            values: {
-              name: "",
-              age: "",
-              height: ""
-            }
-          };
-        case SUCCESS_CREATING_SMURF:
-          return {
-            ...state,
-            editID: null,
-            values: {
-              name: "",
-              age: "",
-              height: ""
-            }
-          };
-        case FAIL_CREATING_SMURF:
-          return {
-            ...state,
-            editID: null,
-            values: {
-              name: "",
-              age: "",
-              height: ""
-            }
-          };
-        default:
-          return state;
-      }
-    }
-  })
+  form
 };
 export default reducers
 /*
