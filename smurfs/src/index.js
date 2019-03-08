@@ -6,8 +6,9 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import {smurfReducer} from './reducers';
+import { reducer as formReducer } from "redux-form";
 
-const rootReducers = combineReducers({smurfReducer})
+const rootReducers = combineReducers({smurfReducer, form: formReducer})
 const store = createStore(
   rootReducers,
   compose(

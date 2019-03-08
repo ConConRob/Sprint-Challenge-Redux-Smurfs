@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import SmurfList from './smurfList/SmurfList.jsx';
-
+import SmurfForm from './smurfList/SmurfForm'
 const StyledApp = styled.div`
 display: flex;
 justify-content: center;
@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <StyledApp>
+        <SmurfForm />
         <SmurfList />
       </StyledApp>
     );
