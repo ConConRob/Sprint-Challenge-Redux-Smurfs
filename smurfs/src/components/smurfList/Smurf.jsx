@@ -2,20 +2,27 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import { deleteSmurf } from "../../actions/index";
+import { deleteSmurf, setUpdatingSmurf } from "../../actions/index";
 
 const StyledSmurf = styled.li``;
 
-export function Smurf({ smurf, deleteSmurf }) {
+export function Smurf({ smurf, deleteSmurf, setUpdatingSmurf }) {
   return (
     <StyledSmurf>
-      {smurf.name}
-      <button onClick={() => deleteSmurf(smurf.id)}>delete</button>
+      <span>{smurf.name} </span>
+      <button onClick={() => deleteSmurf(smurf.id)}> delete </button>
+      <button
+        onClick={() =>
+          setUpdatingSmurf(smurf.id, smurf.name, smurf.age, smurf.height)
+        }
+      >
+        update
+      </button>
     </StyledSmurf>
   );
 }
 
 export default connect(
   () => {},
-  { deleteSmurf }
+  { deleteSmurf, setUpdatingSmurf }
 )(Smurf);

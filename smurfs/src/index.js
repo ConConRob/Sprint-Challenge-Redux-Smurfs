@@ -7,8 +7,29 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import {smurfReducer} from './reducers';
 import { reducer as formReducer } from "redux-form";
+import {SET_UPDATING_SMURF} from './actions/index'
+const reducers = {
+  smurfReducer,
+  form: formReducer.plugin({
+    createSmurf: (state, action) => {
+      switch(action.type) {
+        case SET_UPDATING_SMURF:
+          return {
+            ...state,
+            values: {
+              name: action.payload.name,
+              age: action.payload.age,
+              height: action.payload.height,
+            }
+          }
+        default:
+          return state
+      }
+    }
+  })
+}
 
-const rootReducers = combineReducers({smurfReducer, form: formReducer})
+const rootReducers = combineReducers(reducers)
 const store = createStore(
   rootReducers,
   compose(
