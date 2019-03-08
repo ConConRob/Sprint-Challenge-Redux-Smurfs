@@ -10,9 +10,18 @@ const StyledSmurfForm = styled.form``;
 const SmurfForm = props => {
   function handleSubmit(event) {
     event.preventDefault();
-    props.addSmurf(props.nameInput, props.ageInput, props.heightInput);
+    console.log(props.editId);
+    if (props.editId) {
+      props.updatingSmurf(
+        props.editId,
+        props.nameInput,
+        props.ageInput,
+        props.heightInput
+      );
+    } else {
+      props.addSmurf(props.nameInput, props.ageInput, props.heightInput);
+    }
   }
-  console.log(props);
   return (
     <StyledSmurfForm onSubmit={handleSubmit}>
       <div>
