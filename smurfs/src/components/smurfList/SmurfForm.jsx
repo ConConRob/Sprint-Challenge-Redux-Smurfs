@@ -22,6 +22,7 @@ const SmurfForm = props => {
       props.addSmurf(props.nameInput, props.ageInput, props.heightInput);
     }
   }
+  const doing = !!props.editId ? "Edit" : "Add";
   return (
     <StyledSmurfForm onSubmit={handleSubmit}>
       <div>
@@ -36,7 +37,7 @@ const SmurfForm = props => {
         <label htmlFor="height">Height</label>
         <Field name="height" component="input" type="text" />
       </div>
-      <button type="submit">Add Smurf</button>
+      <button type="submit">{doing} Smurf</button>
     </StyledSmurfForm>
   );
 };
