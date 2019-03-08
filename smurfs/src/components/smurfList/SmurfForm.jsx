@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import styled from "styled-components";
 
-import { addSmurf } from "../../actions/index";
+import { addSmurf, updatingSmurf } from "../../actions/index";
 
 const StyledSmurfForm = styled.form``;
 
 const SmurfForm = props => {
-  console.log(props.nameInput);
   function handleSubmit(event) {
     event.preventDefault();
     props.addSmurf(props.nameInput, props.ageInput, props.heightInput);
   }
+  console.log(props);
   return (
     <StyledSmurfForm onSubmit={handleSubmit}>
       <div>
@@ -37,14 +37,15 @@ function mapStateToProps(state) {
     return {
       nameInput: state.form.createSmurf.values.name,
       ageInput: state.form.createSmurf.values.age,
-      heightInput: state.form.createSmurf.values.height
+      heightInput: state.form.createSmurf.values.height,
+      editId: state.form.createSmurf.editID
     };
   }
 }
 
 const ConnectedForm = connect(
   mapStateToProps,
-  { addSmurf }
+  { addSmurf, updatingSmurf }
 )(SmurfForm);
 
 export default reduxForm({ form: "createSmurf" })(ConnectedForm);

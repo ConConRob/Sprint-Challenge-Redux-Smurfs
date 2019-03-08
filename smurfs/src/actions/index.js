@@ -57,6 +57,6 @@ export const updatingSmurf = (id, name, age, height) => dispatch => {
 
 export function setUpdatingSmurf(id,name,age,height){
   return {
-    type: SET_UPDATING_SMURF, payload:{name,age,height}
+    type: SET_UPDATING_SMURF, payload:{id,name,age,height}
   }
 }

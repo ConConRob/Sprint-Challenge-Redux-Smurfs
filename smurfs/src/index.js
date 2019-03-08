@@ -16,6 +16,7 @@ const reducers = {
         case SET_UPDATING_SMURF:
           return {
             ...state,
+            editID: action.payload.id,
             values: {
               name: action.payload.name,
               age: action.payload.age,
