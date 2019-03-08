@@ -3,8 +3,8 @@ import styled from "styled-components";
 import SmurfList from './smurfList/SmurfList.jsx';
 import SmurfForm from './smurfList/SmurfForm'
 const StyledApp = styled.div`
-display: flex;
-justify-content: center;
+margin: 20px auto; 
+max-width: 800px;
 `
 /*
  to wire this component up you're going to need a few things.

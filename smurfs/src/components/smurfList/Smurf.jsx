@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 
 import { deleteSmurf, setUpdatingSmurf } from "../../actions/index";
 
-const StyledSmurf = styled.li``;
+const StyledSmurf = styled.li`
+  display: flex;
+  justify-content: space-between;
+  span {
+    width: 200px;
+  }
+`;
 
 export function Smurf({ smurf, deleteSmurf, setUpdatingSmurf }) {
   return (

@@ -5,7 +5,24 @@ import styled from "styled-components";
 
 import { addSmurf, updatingSmurf } from "../../actions/index";
 
-const StyledSmurfForm = styled.form``;
+const StyledSmurfForm = styled.form`
+  div {
+    margin-top: 20px;
+    display: flex;
+    div {
+      width: 100px;
+    }
+  }
+  input {
+    width: 90%;
+  }
+  label {
+    width: 100px;
+  }
+  button {
+    width: 90%;
+  }
+`;
 
 const SmurfForm = props => {
   function handleSubmit(event) {
@@ -37,7 +54,10 @@ const SmurfForm = props => {
         <label htmlFor="height">Height</label>
         <Field name="height" component="input" type="text" />
       </div>
-      <button type="submit">{doing} Smurf</button>
+      <div>
+        <div />
+        <button type="submit">{doing} Smurf</button>
+      </div>
     </StyledSmurfForm>
   );
 };

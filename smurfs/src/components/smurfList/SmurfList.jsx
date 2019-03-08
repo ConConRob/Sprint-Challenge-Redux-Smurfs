@@ -6,7 +6,9 @@ import { addSmurfs } from "../../actions/index";
 
 import Smurf from "./Smurf";
 
-const StyledSmurfList = styled.ul``;
+const StyledSmurfList = styled.ul`
+  padding-left: 100px;
+`;
 
 export class SmurfList extends Component {
   componentDidMount() {
