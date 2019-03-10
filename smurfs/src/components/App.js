@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import styled from "styled-components";
+import SmurfList from './smurfList/SmurfList.jsx';
+import SmurfForm from './smurfList/SmurfForm'
+const StyledApp = styled.div`
+margin: 20px auto; 
+max-width: 800px;
+`
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -9,12 +15,10 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
+      <StyledApp>
+        <SmurfForm />
+        <SmurfList />
+      </StyledApp>
     );
   }
 }
